@@ -200,8 +200,7 @@ void	sort(t_ez_stack *A, t_stack **B, t_stack *first, t_stack *last)
 		last = bfrthis(A->head, pivot);
 	move_to_b(&A->head, B, pivot);
 	while (1)
-	{//rimuovere questo put_first
-		//put_first(&A->head, A->start);
+	{
 		big_left = get_first_bigger(A->head, A->start, pivot->x);
 		small_right = get_last_smaller(A->head, A->start, pivot->x);
 		if (left_is_right(A->head, A->start, big_left, small_right))
@@ -215,7 +214,6 @@ void	sort(t_ez_stack *A, t_stack **B, t_stack *first, t_stack *last)
 		first = get_next(A->head, pivot);
 	//ft_printf("MEGA\n");
 	swap_pivot(&A->head, B, bfrthis(A->head, last), big_left);
-	//put_first(&A->head, A->start);//rimuovere questo
 	pivot->right = 1;
 	if (get_distance(A->head, first, pivot) == 2)
 	{
